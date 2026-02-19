@@ -4,6 +4,32 @@ Claude Code 플러그인 모음 — 웹 디자인, SEO/GEO, 데이터 시각화.
 
 ---
 
+## 설치
+
+**Claude Code Marketplace에서 설치 (권장)**
+
+```bash
+claude plugin install god-damn-claude
+```
+
+**또는 개별 플러그인만 설치**
+
+```bash
+claude plugin install god-damn-design
+claude plugin install god-damn-seogeo
+claude plugin install god-damn-visualization
+```
+
+**GitHub에서 직접 설치**
+
+```bash
+claude plugin install https://github.com/Routtyapp/god-damn-claude
+```
+
+설치 후 Claude Code를 재시작하면 커맨드를 바로 사용할 수 있습니다.
+
+---
+
 ## god-damn-claude (디자인)
 
 | 커맨드 | 설명 |

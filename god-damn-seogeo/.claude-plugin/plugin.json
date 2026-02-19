@@ -1,0 +1,6 @@
+{
+  "name": "god-damn-seogeo",
+  "description": "SEO & GEO 최적화 전용 skills 플러그인 - 검색엔진 최적화, 생성형 엔진 최적화 가이드 제공",
+  "version": "1.0.0",
+  "keywords": ["seo", "geo", "structured-data", "meta-tags", "schema", "i18n"]
+}

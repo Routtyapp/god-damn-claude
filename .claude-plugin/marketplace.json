@@ -1,0 +1,13 @@
+{
+  "name": "my-plugins",
+  "owner": {
+    "name": "Baalzebul"
+  },
+  "plugins": [
+    {
+      "name": "god-damn-design",
+      "source": "./god-damn-design",
+      "description": "빠른 디자인을 위한 스킬 추가"
+    }
+  ]
+}

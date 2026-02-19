@@ -1,3 +1,8 @@
+---
+name: dual-axis
+description: Matplotlib 이중 축 그래프 생성 가이드. 단위가 다른 두 지표를 하나의 차트에 표현할 때 사용한다.
+---
+
 # Dual Axis Skill
 
 Matplotlib를 사용한 이중 축 그래프 생성 가이드입니다.

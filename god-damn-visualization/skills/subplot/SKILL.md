@@ -1,3 +1,8 @@
+---
+name: subplot
+description: Matplotlib 서브플롯 생성 가이드. 여러 차트를 하나의 figure에 배치할 때 사용한다.
+---
+
 # Subplot Skill
 
 Matplotlib를 사용한 서브플롯(다중 그래프) 생성 가이드입니다.

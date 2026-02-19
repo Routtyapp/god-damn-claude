@@ -1,3 +1,8 @@
+---
+name: heatmap
+description: Matplotlib 히트맵 생성 가이드. 행렬 형태 데이터의 밀도나 강도를 색상으로 시각화할 때 사용한다.
+---
+
 # Heatmap Skill
 
 Matplotlib를 사용한 히트맵 생성 가이드입니다.

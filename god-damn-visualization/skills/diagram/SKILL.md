@@ -1,3 +1,8 @@
+---
+name: diagram
+description: Matplotlib 다이어그램 생성 가이드. 프로세스 흐름이나 구조를 도식화할 때 사용한다.
+---
+
 # Diagram Skill
 
 Matplotlib를 사용한 다이어그램 생성 가이드입니다.

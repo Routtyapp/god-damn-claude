@@ -1,3 +1,8 @@
+---
+name: ui-spec
+description: 프레임워크 무관 공통 UI 규격서. MUI, shadcn, Mantine 등 어떤 라이브러리를 사용하더라도 일관된 UI 품질을 유지하기 위한 기준을 제공한다.
+---
+
 # UI Specification (Framework-Agnostic)
 > 목적: MUI / shadcn / Mantine 등 어떤 UI 라이브러리를 사용하더라도  
 > 동일한 결과 품질과 일관성을 유지하기 위한 공통 UI 규격서

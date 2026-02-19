@@ -1,3 +1,8 @@
+---
+name: histogram
+description: Matplotlib 히스토그램 생성 가이드. 데이터의 빈도 분포를 시각화할 때 사용한다.
+---
+
 # Histogram Skill
 
 Matplotlib를 사용한 히스토그램 생성 가이드입니다.

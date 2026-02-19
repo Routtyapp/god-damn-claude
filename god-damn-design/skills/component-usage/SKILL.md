@@ -1,3 +1,8 @@
+---
+name: component-usage
+description: UI 컴포넌트 사용 가이드. Mantine UI / shadcn/ui 기반으로 언제 어떤 컴포넌트를 써야 하는지 실전 기준을 제공한다.
+---
+
 # UI Component Usage Cheat Sheet
 > Mantine UI / shadcn/ui 기반 확장 가이드  
 > 목적: 컴포넌트 "종류 나열"이 아니라,  

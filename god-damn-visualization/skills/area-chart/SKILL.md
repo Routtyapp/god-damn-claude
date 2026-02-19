@@ -1,3 +1,8 @@
+---
+name: area-chart
+description: Matplotlib 영역 차트 생성 가이드. 시계열 데이터의 누적량이나 추세를 시각화할 때 사용한다.
+---
+
 # Area Chart Skill
 
 Matplotlib를 사용한 영역 차트 생성 가이드입니다.

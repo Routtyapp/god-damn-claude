@@ -1,3 +1,8 @@
+---
+name: design-system
+description: 디자인 시스템 구축 가이드. 디자인 토큰, CSS 변수, Tailwind 설정, 테마 시스템 및 다크모드 구현 시 사용한다.
+---
+
 # Design System Skill
 
 디자인 시스템 구축을 위한 가이드입니다.

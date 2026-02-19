@@ -1,3 +1,8 @@
+---
+name: line-chart
+description: Matplotlib 라인 차트 생성 가이드. 시계열 데이터의 추세와 변화를 시각화할 때 사용한다.
+---
+
 # Line Chart Skill
 
 Matplotlib를 사용한 라인 차트(꺾은선 그래프) 생성 가이드입니다.

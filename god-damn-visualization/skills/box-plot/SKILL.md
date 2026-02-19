@@ -1,3 +1,8 @@
+---
+name: box-plot
+description: Matplotlib 박스 플롯 생성 가이드. 데이터 분포, 중앙값, 이상치를 시각화할 때 사용한다.
+---
+
 # Box Plot Skill
 
 Matplotlib를 사용한 박스 플롯(상자 그림) 생성 가이드입니다.

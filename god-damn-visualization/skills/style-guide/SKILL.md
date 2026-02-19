@@ -1,3 +1,8 @@
+---
+name: style-guide
+description: Matplotlib 그래프 스타일 가이드. 색상, 폰트, 레이아웃 등 차트 스타일을 커스터마이징할 때 사용한다.
+---
+
 # Style Guide Skill
 
 Matplotlib 그래프 스타일 설정 및 커스터마이징 가이드입니다.

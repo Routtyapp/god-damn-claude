@@ -1,3 +1,8 @@
+---
+name: pie-chart
+description: Matplotlib 파이 차트 생성 가이드. 전체 대비 각 항목의 비율을 시각화할 때 사용한다.
+---
+
 # Pie Chart Skill
 
 Matplotlib를 사용한 파이 차트(원형 그래프) 생성 가이드입니다.

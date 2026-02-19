@@ -1,3 +1,8 @@
+---
+name: scatter-plot
+description: Matplotlib 산점도 생성 가이드. 두 변수 간 상관관계를 시각화할 때 사용한다.
+---
+
 # Scatter Plot Skill
 
 Matplotlib를 사용한 산점도 생성 가이드입니다.

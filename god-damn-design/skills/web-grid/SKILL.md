@@ -1,3 +1,8 @@
+---
+name: web-grid
+description: 반응형 웹 그리드 시스템 규격. 4px/12 Column 표준 기반으로 일관된 레이아웃을 설계할 때 사용한다.
+---
+
 # Web Grid System Specification (4px / 12 Column Standard)
 
 > 목적:  

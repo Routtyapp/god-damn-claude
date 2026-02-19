@@ -1,3 +1,8 @@
+---
+name: gestalt-rules
+description: 웹 UI 설계를 위한 게슈탈트 이론 실전 적용 가이드. 근접성, 유사성, 연속성 등 시각 원리를 레이아웃에 적용할 때 사용한다.
+---
+
 # Gestalt Principles for Web UI Design
 > 웹 UI 설계를 위한 게슈탈트 이론 실전 적용 가이드
 

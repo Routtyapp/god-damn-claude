@@ -1,3 +1,8 @@
+---
+name: bar-chart
+description: Matplotlib 바 차트 생성 가이드. 카테고리별 수치를 비교할 때 사용한다.
+---
+
 # Bar Chart Skill
 
 Matplotlib를 사용한 바 차트(막대 그래프) 생성 가이드입니다.

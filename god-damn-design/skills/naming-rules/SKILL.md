@@ -1,3 +1,8 @@
+---
+name: naming-rules
+description: 파일명, 레이어명, 심볼명, 에셋명 공통 작명 규칙. 개발/디자인 간 네이밍 충돌을 방지할 때 사용한다.
+---
+
 # Naming Convention Specification
 > 파일명 / 레이어명 / 심볼명 / 에셋명 공통 작명 규칙
 

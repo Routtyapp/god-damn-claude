@@ -2,5 +2,19 @@
   "name": "god-damn-claude",
   "description": "웹디자인 전용 skills 모음 플러그인 - UI 컴포넌트, 반응형 레이아웃, 디자인 시스템 가이드 제공",
   "version": "1.0.0",
-  "keywords": ["web-design", "components", "responsive", "design-system", "ui"]
+  "keywords": ["web-design", "components", "responsive", "design-system", "ui", "css-trig", "trigonometry", "color", "color-mix", "oklch"],
+  "skills": [
+    "component-usage",
+    "components-design",
+    "design-system",
+    "design-texture",
+    "gestalt-rules",
+    "interactive-design",
+    "naming-rules",
+    "pattern-design",
+    "ui-spec",
+    "web-grid",
+    "css-trig",
+    "color-interpolation"
+  ]
 }

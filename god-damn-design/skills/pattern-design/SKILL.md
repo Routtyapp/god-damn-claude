@@ -31,3 +31,4 @@ CSS `background-image`와 인라인 SVG를 결합한 반복 패턴 배경 스킬
 ## 상세 참조
 
 - **격자 패턴**: [grid.md](grid.md) — 십자/둥근사각형 패턴 React 컴포넌트, 사용 예시
+- **Blob 패턴**: [blob.md](blob.md) — CSS border-radius blob, SVG path blob, morph 애니메이션

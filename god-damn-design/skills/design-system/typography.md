@@ -353,3 +353,114 @@ body {
   font-feature-settings: 'tnum';
 }
 ```
+
+## shadcn/ui 적용 사례
+
+Tailwind 유틸리티 클래스로 텍스트 스타일을 지정하는 shadcn/ui 표준 패턴이다.
+
+### Heading
+
+```tsx
+// h1
+<h1 className="scroll-m-20 text-center text-4xl font-extrabold tracking-tight text-balance">
+  제목
+</h1>
+
+// h2
+<h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0">
+  섹션 제목
+</h2>
+
+// h3
+<h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+  소제목
+</h3>
+
+// h4
+<h4 className="scroll-m-20 text-xl font-semibold tracking-tight">
+  항목 제목
+</h4>
+```
+
+### Body
+
+```tsx
+// 본문 단락
+<p className="leading-7 [&:not(:first-child)]:mt-6">
+  본문 텍스트
+</p>
+
+// Lead (강조 리드 문장)
+<p className="text-muted-foreground text-xl">
+  섹션 도입 문장
+</p>
+
+// Large
+<div className="text-lg font-semibold">강조 텍스트</div>
+
+// Small
+<small className="text-sm leading-none font-medium">보조 텍스트</small>
+
+// Muted
+<p className="text-muted-foreground text-sm">흐린 보조 설명</p>
+```
+
+### 인용 / 코드
+
+```tsx
+// Blockquote
+<blockquote className="mt-6 border-l-2 pl-6 italic">
+  인용문
+</blockquote>
+
+// Inline Code
+<code className="bg-muted relative rounded px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold">
+  코드
+</code>
+```
+
+### 목록 / 테이블
+
+```tsx
+// List
+<ul className="my-6 ml-6 list-disc [&>li]:mt-2">
+  <li>항목 1</li>
+  <li>항목 2</li>
+</ul>
+
+// Table
+<div className="my-6 w-full overflow-y-auto">
+  <table className="w-full">
+    <thead>
+      <tr className="even:bg-muted m-0 border-t p-0">
+        <th className="border px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right">
+          헤더
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr className="even:bg-muted m-0 border-t p-0">
+        <td className="border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right">
+          셀
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+```
+
+### 토큰 ↔ shadcn 클래스 대응표
+
+| 토큰 | shadcn 클래스 | 용도 |
+|------|--------------|------|
+| `--text-4xl` | `text-4xl` | h1 |
+| `--text-3xl` | `text-3xl` | h2 |
+| `--text-2xl` | `text-2xl` | h3 |
+| `--text-xl` | `text-xl` | h4, lead |
+| `--text-lg` | `text-lg` | large |
+| `--text-sm` | `text-sm` | small, muted, inline code |
+| `--font-extrabold` | `font-extrabold` | h1 |
+| `--font-semibold` | `font-semibold` | h2, h3, h4 |
+| `--font-medium` | `font-medium` | small, label |
+| `--leading-normal` (1.75) | `leading-7` | 본문 단락 |
+| `--tracking-tight` | `tracking-tight` | heading |

@@ -31,3 +31,4 @@ CSS 애니메이션과 SVG 필터를 결합한 인터랙티브 시각 효과 스
 
 - **도형 변환 버튼**: [animated-button.md](animated-button.md) — clip-path 도형 정의, shapeshift keyframes, 그라디언트 이동
 - **시네마틱 배경**: [cinema-like.md](cinema-like.md) — SVG 조명 필터, 노이즈 시드 애니메이션, 커서 추적 컴포넌트
+- **나선형 스크롤**: [spiral-scroll.md](spiral-scroll.md) — sibling-index(), scroll-driven animation, 스태거 페이드인

@@ -1,6 +1,6 @@
 ---
 name: subplot
-description: Matplotlib 서브플롯 생성 가이드. 여러 차트를 하나의 figure에 배치할 때 사용한다.
+description: Matplotlib 서브플롯(subplot) 생성 가이드. subplots(), GridSpec, subplot2grid로 여러 차트를 하나의 figure에 격자·비대칭·중첩 배치할 때 사용한다. 공유 축(sharex/sharey), 불규칙 레이아웃, tight_layout 포함.
 ---
 
 # Subplot Skill

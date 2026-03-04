@@ -1,6 +1,6 @@
 ---
 name: line-chart
-description: Matplotlib 라인 차트 생성 가이드. 시계열 데이터의 추세와 변화를 시각화할 때 사용한다.
+description: Matplotlib 라인 차트(꺾은선 그래프) 생성 가이드. 시계열 추세 분석, 다중 라인 비교, 연속 데이터 변화를 시각화할 때 사용한다. plot(), 마커·선 스타일 커스터마이징, 다중 라인 오버레이, 서브플롯 배치, 한글 폰트 설정 포함.
 ---
 
 # Line Chart Skill
@@ -138,3 +138,8 @@ plt.rcParams['axes.unicode_minus'] = False  # 마이너스 기호 깨짐 방지
 - [ ] 적절한 figsize 설정
 - [ ] 한글 사용 시 폰트 설정
 - [ ] 저장 시 dpi와 bbox_inches 설정
+
+## 상세 참조
+
+- **축 레이블·범례·축 범위**: [official-guide.md](official-guide.md)
+- **선 종류·마커·색상·저장**: [../style-guide/official-guide.md](../style-guide/official-guide.md)

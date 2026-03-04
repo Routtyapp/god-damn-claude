@@ -1,6 +1,6 @@
 ---
 name: heatmap
-description: Matplotlib 히트맵 생성 가이드. 행렬 형태 데이터의 밀도나 강도를 색상으로 시각화할 때 사용한다.
+description: Matplotlib 히트맵(heatmap) 생성 가이드. imshow()·pcolormesh()로 행렬 데이터의 강도·상관계수·혼동행렬을 색상 맵으로 시각화할 때 사용한다. colorbar, annotate(숫자 표시), 커스텀 colormap 포함.
 ---
 
 # Heatmap Skill
@@ -258,3 +258,7 @@ plt.rcParams['axes.unicode_minus'] = False
 - [ ] 필요시 셀에 값 표시
 - [ ] 값 표시 시 가독성 (텍스트 색상)
 - [ ] vmin, vmax로 범위 지정 (발산형)
+
+## 상세 참조
+
+- **matshow/imshow 파라미터**: [official-guide.md](official-guide.md) — colorbar, clim, cmap, 셀 값 표시

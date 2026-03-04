@@ -1,6 +1,6 @@
 ---
 name: style-guide
-description: Matplotlib 그래프 스타일 가이드. 색상, 폰트, 레이아웃 등 차트 스타일을 커스터마이징할 때 사용한다.
+description: Matplotlib 그래프 스타일 가이드. rcParams, 컬러 팔레트, 한글 폰트(Malgun Gothic), 테마(dark_background, seaborn), 스파인·그리드·틱 커스터마이징, 고해상도 저장(dpi, bbox_inches) 설정 시 사용한다.
 ---
 
 # Style Guide Skill
@@ -377,3 +377,7 @@ plt.show()
 - [ ] 일관된 색상 팔레트 사용
 - [ ] 저장 시 dpi와 bbox_inches 설정
 - [ ] 용도에 맞는 크기 설정 (논문/프레젠테이션)
+
+## 상세 참조
+
+- **선 종류·마커·색상·저장 파라미터 전체**: [official-guide.md](official-guide.md)

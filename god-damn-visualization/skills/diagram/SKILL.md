@@ -1,6 +1,6 @@
 ---
 name: diagram
-description: Matplotlib 다이어그램 생성 가이드. 프로세스 흐름이나 구조를 도식화할 때 사용한다.
+description: Matplotlib 다이어그램 생성 가이드. patches, FancyArrowPatch, annotate로 플로우차트, 트리 구조, 네트워크 관계도, 순서도를 도식화할 때 사용한다. 화살표·도형·연결선·텍스트 레이아웃 포함.
 ---
 
 # Diagram Skill

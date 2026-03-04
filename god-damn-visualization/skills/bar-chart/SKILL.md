@@ -1,6 +1,6 @@
 ---
 name: bar-chart
-description: Matplotlib 바 차트 생성 가이드. 카테고리별 수치를 비교할 때 사용한다.
+description: Matplotlib 막대 차트(bar chart) 생성 가이드. 카테고리 비교, 그룹 막대(grouped bar), 누적 막대(stacked bar), 수평 막대(horizontal bar), 오차 막대(error bar) 시각화 시 사용한다.
 ---
 
 # Bar Chart Skill
@@ -194,3 +194,8 @@ plt.rcParams['axes.unicode_minus'] = False
 - [ ] 그리드 추가 (y축만 권장)
 - [ ] 적절한 색상 선택
 - [ ] 막대 너비 조절 (그룹 차트 시)
+
+## 상세 참조
+
+- **색상·파라미터 전체**: [official-guide.md](official-guide.md) — 수평 막대, 색상, 폭, 스타일 파라미터 일람
+- **선 스타일·저장**: [../style-guide/official-guide.md](../style-guide/official-guide.md)

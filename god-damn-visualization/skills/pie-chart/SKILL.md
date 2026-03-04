@@ -1,6 +1,6 @@
 ---
 name: pie-chart
-description: Matplotlib 파이 차트 생성 가이드. 전체 대비 각 항목의 비율을 시각화할 때 사용한다.
+description: Matplotlib 파이 차트(pie chart, 원형 그래프) 및 도넛 차트(donut chart) 생성 가이드. 전체 대비 비율, 특정 조각 강조(explode), 퍼센트 레이블, 중첩 파이 차트 시각화 시 사용한다.
 ---
 
 # Pie Chart Skill
@@ -197,3 +197,7 @@ plt.rcParams['axes.unicode_minus'] = False
 - [ ] 가장 중요한 항목 강조 (explode)
 - [ ] 범례 위치 적절히 배치
 - [ ] 색상 대비 확인
+
+## 상세 참조
+
+- **pie() 파라미터 전체**: [official-guide.md](official-guide.md) — explode, shadow, wedgeprops, 시작 각도, 도넛 차트

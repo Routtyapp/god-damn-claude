@@ -1,6 +1,6 @@
 ---
 name: dual-axis
-description: Matplotlib 이중 축 그래프 생성 가이드. 단위가 다른 두 지표를 하나의 차트에 표현할 때 사용한다.
+description: Matplotlib 이중 축(dual-axis, twinx/twiny) 그래프 생성 가이드. 단위가 다른 두 지표(예: 매출액과 성장률)를 하나의 차트에 함께 표현할 때 사용한다. 라인+바 복합, 독립 y축 스케일, 축 색상 동기화 포함.
 ---
 
 # Dual Axis Skill
@@ -340,3 +340,7 @@ plt.rcParams['axes.unicode_minus'] = False
 - [ ] 그리드는 하나의 축에만 적용
 - [ ] 스케일 차이가 크면 로그 스케일 고려
 - [ ] 세 개 이상의 축은 가독성 저하 주의
+
+## 상세 참조
+
+- **twinx/twiny 전체 예제**: [official-guide.md](official-guide.md) — 범례 합치기, 라인+바 복합, zorder 제어

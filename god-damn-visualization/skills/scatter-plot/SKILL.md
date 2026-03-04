@@ -1,6 +1,6 @@
 ---
 name: scatter-plot
-description: Matplotlib 산점도 생성 가이드. 두 변수 간 상관관계를 시각화할 때 사용한다.
+description: Matplotlib 산점도(scatter plot) 생성 가이드. 두 변수 간 상관관계·클러스터·분포를 시각화할 때 사용한다. 색상·크기 인코딩, 추세선(regression line), 버블 차트, 산점도 행렬(pair plot) 포함.
 ---
 
 # Scatter Plot Skill
@@ -268,3 +268,8 @@ plt.rcParams['axes.unicode_minus'] = False
 - [ ] 필요시 추세선 추가
 - [ ] 이상치 확인 및 처리
 - [ ] 컬러바 추가 (색상으로 값 표현 시)
+
+## 상세 참조
+
+- **scatter() 파라미터 전체**: [official-guide.md](official-guide.md) — 색상·크기 인코딩, 컬러맵, 투명도
+- **색상·마커**: [../style-guide/official-guide.md](../style-guide/official-guide.md)

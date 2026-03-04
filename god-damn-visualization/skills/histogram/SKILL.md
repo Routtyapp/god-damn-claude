@@ -1,6 +1,6 @@
 ---
 name: histogram
-description: Matplotlib 히스토그램 생성 가이드. 데이터의 빈도 분포를 시각화할 때 사용한다.
+description: Matplotlib 히스토그램 생성 가이드. hist()로 데이터 빈도 분포, 정규 분포 적합, 누적 히스토그램, 다중 데이터셋 오버레이, KDE(커널 밀도 추정) 곡선을 시각화할 때 사용한다.
 ---
 
 # Histogram Skill
@@ -303,3 +303,8 @@ plt.rcParams['axes.unicode_minus'] = False
 - [ ] 필요시 통계량 표시
 - [ ] 밀도 곡선 추가 (분포 확인)
 - [ ] 이상치 확인
+
+## 상세 참조
+
+- **hist() 파라미터 전체**: [official-guide.md](official-guide.md) — bins, cumulative, histtype, density 상세
+- **스타일·저장**: [../style-guide/official-guide.md](../style-guide/official-guide.md)

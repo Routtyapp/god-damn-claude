@@ -1,3 +1,8 @@
+---
+name: god-damn-design
+description: 웹 UI 디자인 7원칙 참조 가이드. 계층 구조(Hierarchy), 점진적 공개(Progressive Disclosure), 일관성(Consistency), 대비(Contrast), 접근성(Accessibility), 근접성(Proximity), 정렬(Alignment) 원칙을 기반으로 레이아웃·컴포넌트·인터랙션을 설계할 때, 또는 디자인 결정의 원칙 기반 근거가 필요할 때 사용한다. WCAG 2.1 AA, 인지 부하 감소, 시각적 단서 설계 포함.
+---
+
 # God Damn Design
 
 웹디자인 전용 Skills 모음입니다.

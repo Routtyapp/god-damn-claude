@@ -1,6 +1,6 @@
 ---
 name: design-texture
-description: CSS/SVG 기반 시각적 질감(Texture) 구현 가이드. Glassmorphism, Grainy Gradients, Metallic 등 고급 표면 효과를 React 컴포넌트로 구현할 때 사용한다. backdrop-filter, SVG feTurbulence, mix-blend-mode, conic-gradient 등 질감 관련 CSS 기법이 필요할 때 이 스킬을 참조한다.
+description: CSS/SVG/WebGL 기반 시각적 질감(Texture) 구현 가이드. Glassmorphism, Grainy Gradients, Metallic, Smoky Shader 등 고급 표면 효과를 React 컴포넌트로 구현할 때 사용한다. backdrop-filter, SVG feTurbulence, mix-blend-mode, conic-gradient, GLSL Fragment Shader 등 질감 관련 기법이 필요할 때 이 스킬을 참조한다.
 ---
 
 # Design Texture
@@ -12,6 +12,8 @@ CSS와 SVG 필터를 활용한 시각적 질감(Texture) 구현 스킬이다.
 - 유리 효과(Glassmorphism) 카드/버튼 구현 시
 - 노이즈 질감이 있는 그라데이션 배경 구현 시
 - 메탈릭/크롬 느낌의 표면 효과 구현 시
+- 빛이 물체를 통과하는 물리 조명을 시뮬레이션할 때
+- GLSL 셰이더로 연기·유체·불꽃 같은 유기적 애니메이션 배경 구현 시
 
 ## 핵심 기법 요약
 
@@ -20,6 +22,8 @@ CSS와 SVG 필터를 활용한 시각적 질감(Texture) 구현 스킬이다.
 | Glassmorphism | `backdrop-filter: blur()` + `rgba` 배경 | 카드, 버튼, 오버레이 |
 | Grainy Gradient | SVG `feTurbulence` + `mix-blend-mode` | 히어로 배경, 섹션 배경 |
 | Metallic | `linear-gradient` 다단계 | 버튼, 배지, 장식 요소 |
+| Physical Light | `rotateX` + `linear-gradient` + `blur` + `:has()` | 프리미엄 카드, 조명 시뮬레이션 |
+| Smoky Shader | GLSL FBM 노이즈 + `fragment-canvas` WebGL | 연기/불꽃 버튼, 라이브 배경 |
 
 ## 공통 규칙
 
@@ -31,4 +35,6 @@ CSS와 SVG 필터를 활용한 시각적 질감(Texture) 구현 스킬이다.
 
 - **유리 효과**: [Glassmorphism.md](Glassmorphism.md) — 블러 카드, 3D 글래스 버튼, 재사용 컴포넌트
 - **노이즈 질감**: [grainy-gradients.md](grainy-gradients.md) — SVG 노이즈 생성, 그라데이션 합성
-- **메탈릭 효과**: [metalic.md](metalic.md) — 다단계 그라데이션 메탈 버튼
+- **메탈릭 효과**: [metallic.md](metallic.md) — 다단계 그라데이션 메탈 버튼
+- **물리 조명**: [physical-light.md](physical-light.md) — slit 빛 투과, 3D 빛 확산, `:has()` 조명 토글
+- **연기 셰이더**: [smoky-shader.md](smoky-shader.md) — GLSL FBM 도메인 워핑, WebGL 유체 배경, 색상 팔레트 커스터마이징

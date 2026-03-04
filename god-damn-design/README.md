@@ -1,115 +1,90 @@
-﻿# god-damn-claude
+# god-damn-design
 
-웹디자인 전용 Skills 모음 플러그인입니다.
+웹디자인 전용 Skills · Agents 모음 플러그인. UI 컴포넌트, 반응형 레이아웃, 디자인 시스템, 표면 효과, 애니메이션 구현 가이드를 제공한다.
+
+---
 
 ## 설치
 
-이 플러그인을 Claude Code 계정 단위로 설치하려면:
-
-```bash
-# 플러그인 디렉토리로 이동
-cd god-damn-claude
-
-# Claude Code에서 플러그인 로드
-claude --plugin-dir .
-```
-
-또는 글로벌 설정에 추가:
-```bash
-# ~/.claude/settings.json에 추가
-{
-  "pluginDirectories": ["/path/to/god-damn-claude"]
-}
-```
-
-## Skills 목록
-
-### 1. component-builder
-UI 컴포넌트 생성 및 설계 가이드
+`god-damn-claude` 마켓플레이스를 통해 설치한다.
 
 ```
-/god-damn-claude:component-builder
+# TUI (Claude Code 내부)
+/plugin marketplace add Routtyapp/god-damn-claude
+/plugin install god-damn-design@god-damn-claude
+
+# CLI (터미널)
+claude plugin marketplace add Routtyapp/god-damn-claude
+claude plugin install god-damn-design@god-damn-claude
 ```
 
-**기능:**
-- TypeScript 컴포넌트 베스트 프랙티스
-- 컴포넌트 라이브러리 선택 가이드 (Mantine, shadcn, MUI 등)
-- Props 설계, 상태 관리, 이벤트 핸들링 패턴
-- 접근성 및 성능 최적화
+---
 
-### 2. responsive-layout
-반응형 레이아웃 설계 가이드
+## Skills
 
-```
-/god-damn-claude:responsive-layout
-```
+| 커맨드 | 설명 |
+|--------|------|
+| `/god-damn-design:component-usage` | UI 컴포넌트 선택 기준 및 사용 패턴 (Mantine / shadcn) |
+| `/god-damn-design:components-design` | 고급 UI 패턴 구현 (Masonry 등) |
+| `/god-damn-design:design-system` | 디자인 토큰, CSS 변수, 테마/다크모드 |
+| `/god-damn-design:design-texture` | Glassmorphism, Grainy Gradient, Metallic, Smoky Shader |
+| `/god-damn-design:interactive-design` | CSS 애니메이션, SVG 조명, 커서 인터랙션 |
+| `/god-damn-design:micro-interaction` | 버튼·토글·폼 요소 피드백 애니메이션 |
+| `/god-damn-design:scroll-animation` | 스크롤 연동 reveal, parallax, scroll-driven |
+| `/god-damn-design:3d-transform` | 카드 플립, tilt, translateZ 깊이감 레이어 |
+| `/god-damn-design:text-animation` | 타이프라이터, scramble, 글자별 reveal, 그라디언트 텍스트 |
+| `/god-damn-design:pattern-design` | CSS/SVG 기반 반복 패턴 배경 (renderPattern 커스텀) |
+| `/god-damn-design:gestalt-rules` | 근접성·유사성 등 게슈탈트 원리 레이아웃 적용 |
+| `/god-damn-design:web-grid` | 4px / 12 Column 반응형 그리드 시스템 |
+| `/god-damn-design:ui-spec` | 프레임워크 무관 공통 UI 규격 |
+| `/god-damn-design:naming-rules` | 파일·레이어·심볼·에셋 네이밍 규칙 |
+| `/god-damn-design:css-trig` | CSS 삼각함수 기반 레이아웃 (원형 배치, 파동 등) |
+| `/god-damn-design:color-interpolation` | OKLCH 기반 색상 보간 |
 
-**기능:**
-- 브레이크포인트 전략
-- Flexbox/Grid 레이아웃 패턴
-- Mobile-first vs Desktop-first 접근법
-- Container Queries 활용법
-- 반응형 타이포그래피
+---
 
-### 3. design-system
-디자인 시스템 구축 가이드
+## Agents
 
-```
-/god-damn-claude:design-system
-```
+Claude가 작업 맥락에 따라 자동으로 호출하는 전문 에이전트.
 
-**기능:**
-- 디자인 토큰 정의 (색상, 스페이싱, 타이포그래피)
-- CSS 변수 기반 토큰 시스템
-- Tailwind CSS 설정
-- 테마 시스템 및 다크모드 지원
+| 에이전트 | 호출 시점 |
+|----------|-----------|
+| `design-system-builder` | 디자인 토큰 정의, CSS 변수 체계, 테마/다크모드 설정 |
+| `ui-designer` | UI 컴포넌트·레이아웃 구현, 고급 UI 패턴 |
+| `visual-designer` | 기존 UI에 시각 효과·텍스처·애니메이션 추가 |
 
-## 사용 예시
-
-### Button 컴포넌트 생성
-```
-/god-damn-claude:component-builder Button
-
-TypeScript 기준으로 재사용 가능한 Button 컴포넌트 API를 설계해줘.
-variant와 size 타입을 안전하게 제한해줘.
-```
-
-### 반응형 그리드 설계
-```
-/god-damn-claude:responsive-layout grid
-
-3열 카드 그리드를 모바일에서는 1열로 표시하고 싶어.
-auto-fit을 사용해서 구현해줘.
-```
-
-### 디자인 토큰 설정
-```
-/god-damn-claude:design-system tokens
-
-프로젝트의 색상 시스템을 CSS 변수로 정의해줘.
-다크모드도 지원해야 해.
-```
+---
 
 ## 디렉토리 구조
 
 ```
-god-damn-claude/
+god-damn-design/
 ├── .claude-plugin/
-│   └── plugin.json              # 플러그인 메타데이터
-├── skills/
-│   ├── component-builder/       # UI 컴포넌트 생성
-│   │   ├── SKILL.md
-│   │   └── patterns/
-│   │       └── typescript.md
-│   ├── responsive-layout/       # 반응형 레이아웃 설계
-│   │   ├── SKILL.md
-│   │   └── breakpoints.md
-│   └── design-system/           # 디자인 시스템 구축
-│       ├── SKILL.md
-│       ├── tokens.md
-│       └── typography.md
-└── README.md
+│   └── plugin.json
+├── agents/
+│   ├── design-system-builder.md
+│   ├── ui-designer.md
+│   └── visual-designer.md
+└── skills/
+    ├── component-usage/
+    ├── components-design/
+    ├── css-trig/
+    ├── color-interpolation/
+    ├── design-system/
+    ├── design-texture/
+    ├── gestalt-rules/
+    ├── interactive-design/
+    ├── micro-interaction/
+    ├── naming-rules/
+    ├── pattern-design/
+    ├── scroll-animation/
+    ├── 3d-transform/
+    ├── text-animation/
+    ├── ui-spec/
+    └── web-grid/
 ```
+
+---
 
 ## 라이선스
 

@@ -12,6 +12,7 @@ description: 버튼 피드백, 토글, 폼 요소 등 소규모 UI 상태 변화
 - 버튼 클릭/호버에 물리적 피드백이 필요할 때
 - 토글/체크박스 등 상태 변환에 생동감을 줄 때
 - 폼 필드 포커스·유효성 상태를 시각적으로 표현할 때
+- 리다이렉트·탐색 카드에서 "이동하고 싶다"는 여정 욕구를 자극할 때
 
 ## 핵심 원칙
 
@@ -41,6 +42,71 @@ description: 버튼 피드백, 토글, 폼 요소 등 소규모 UI 상태 변화
   }
 }
 ```
+
+## CTA / Journey Encouragement (여정 유도 인터랙션)
+
+리다이렉트·탐색 유도 목적의 컴포넌트에서 호버 시 "이동하고 싶다"는 욕구를 강화하는 패턴이다.
+
+### 패턴 1: 방향성 아이콘 이동
+
+아이콘이 호버 시 방향으로 이동하며 다음 여정을 암시한다.
+
+```css
+.card-arrow {
+  transition: transform var(--duration-base) var(--ease-out);
+}
+.card:hover .card-arrow {
+  transform: translate(3px, -3px); /* 우측 상단 방향 */
+}
+```
+
+### 패턴 2: 카드 Lift
+
+카드가 위로 살짝 뜨며 클릭 가능성을 암시한다.
+
+```css
+.card {
+  transition:
+    transform var(--duration-base) var(--ease-out),
+    box-shadow var(--duration-base) var(--ease-out);
+}
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgb(0 0 0 / 0.12);
+}
+```
+
+### 패턴 3: 아이콘 Reveal
+
+아이콘이 평소엔 희미하다가 호버 시 선명해지며 의도를 명확히 한다.
+
+```css
+.card-icon {
+  opacity: 0.4;
+  transition:
+    opacity var(--duration-fast) var(--ease-out),
+    transform var(--duration-base) var(--spring);
+}
+.card:hover .card-icon {
+  opacity: 1;
+  transform: scale(1.1);
+}
+```
+
+### 공통 원칙
+
+- 아이콘 이동 거리: 2–4px (과하지 않게)
+- duration: `--duration-base` (200ms) 이하
+- `prefers-reduced-motion` 시 opacity 전환만 유지, transform 제거
+
+```css
+@media (prefers-reduced-motion: reduce) {
+  .card-arrow, .card-icon { transition: opacity var(--duration-fast); }
+  .card:hover { transform: none; }
+}
+```
+
+---
 
 ## 상세 참조
 

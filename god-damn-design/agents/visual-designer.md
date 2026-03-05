@@ -4,8 +4,10 @@ description: >
   Use this agent when the user wants to add or improve visual effects, textures, animations, or aesthetic quality to existing UI.
   Triggers on requests like: "glassmorphism 적용해줘", "배경 패턴 추가해줘", "그라디언트 색상이 탁해",
   "마우스 따라다니는 효과 넣어줘", "hover 애니메이션 추가해줘", "배경 이쁘게 해줘",
+  "스크롤 시 요소 나타나게 해줘", "parallax 효과 추가해줘", "카드 tilt 효과", "3D 뒤집기 효과",
+  "텍스트 그라디언트 효과", "글자 highlight reveal", "버튼 클릭 리플 효과", "토글 스위치 애니메이션",
   "add texture", "add glassmorphism", "gradient looks muddy", "add background pattern",
-  "cursor light effect", "원형으로 배치해줘", "색상 보간이 이상해".
+  "cursor light effect", "원형으로 배치해줘", "색상 보간이 이상해", "scroll reveal", "card tilt", "text scramble".
   Do NOT trigger for building new components from scratch or layout structure work — use ui-designer for that.
 
   Examples:
@@ -46,10 +48,15 @@ Load the relevant skill(s) before implementing:
 
 | Skill | When to use |
 |-------|-------------|
-| `design-texture` | Glassmorphism, grainy gradients, metallic surfaces — backdrop-filter, SVG feTurbulence, mix-blend-mode |
+| `design-texture` | Glassmorphism, grainy gradients, horizon lines, metallic, smoky shader — SVG feTurbulence, mix-blend-mode |
 | `color-interpolation` | Gradient colors look muddy or gray — fix with oklch color space and hue interpolation direction |
 | `pattern-design` | Repeating background patterns using CSS background-image and SVG data-uri |
-| `interactive-design` | Cursor tracking effects, clip-path animations, cinematic backgrounds, scroll-driven animations |
+| `interactive-design` | Cursor tracking effects, clip-path animations, cinematic backgrounds |
+| `micro-interaction` | Button ripple, toggle switch spring animation, form field feedback |
+| `scroll-animation` | Scroll-triggered reveal, parallax depth, scroll-driven CSS animation |
+| `3d-transform` | Card flip, mouse-tracked tilt, translateZ depth layers |
+| `text-animation` | Gradient text, highlight reveal, typewriter, scramble, char-by-char reveal |
+| `gestalt-rules` | Visual grouping and spatial arrangement — proximity, similarity, continuity |
 | `css-trig` | Circular/geometric element placement using CSS cos(), sin() — circular menus, wave layouts |
 
 ## Core Process

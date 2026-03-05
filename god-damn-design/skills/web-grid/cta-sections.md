@@ -312,3 +312,180 @@ const dots = Array.from({ length: maxIndex + 1 }, (_, i) => i);
 - 개발자 툴, B2B SaaS — 실제 사용자 목소리로 신뢰 구축
 
 ---
+
+## Pattern 03 — Accordion Gallery CTA (Flex 확장 + Glassmorphism 오버레이)
+
+### 레이아웃 구조
+
+```
+Desktop — 가로 아코디언 (N개 패널, hover 시 확장)
+┌──────┬──────┬──────────────────────────┐
+│ P1   │ P2   │ P3 (hover — flex: 5)     │
+│      │      │  ┌────────────────────┐  │
+│      │      │  │ glassmorphism box  │  │
+│      │      │  │ title + desc       │  │
+│      │      │  └────────────────────┘  │
+└──────┴──────┴──────────────────────────┘
+
+Mobile (≤ 768px) — 세로 스택
+┌────────────────────┐
+│ Panel 1 (min 80px) │
+├────────────────────┤
+│ Panel 2            │
+├────────────────────┤
+│ Panel 3 (active)   │
+└────────────────────┘
+```
+
+### 수치
+
+| 항목 | 값 | 비고 |
+|------|-----|------|
+| 컨테이너 max-width | `1400px` | 넓은 갤러리에 적합 |
+| 갤러리 height | `500px` | tablet: `400px` |
+| 패널 기본 flex | `1` | 균등 분배 |
+| 패널 확장 flex | `5` | hover/active 시 |
+| 패널 min-width | `80px` | 축소 시 너무 좁아지지 않도록 |
+| 패널 gap | `1rem` | |
+| 패널 border-radius | `1.5rem` | |
+| flex 전환 easing | `cubic-bezier(0.25, 1, 0.5, 1) 0.6s` | 자연스러운 스프링감 |
+| 이미지 scale (hover) | `1.05` | transition 0.8s ease |
+| 오버레이 padding | `2rem` | mobile: `1.5rem` |
+| 오버레이 등장 딜레이 | `0.2s` | 패널 확장 후 오버레이 |
+
+### Flex 아코디언 핵심 원리
+
+```css
+.galleryWrapper {
+  display: flex;
+  gap: 1rem;
+  height: 500px;
+}
+
+.galleryItem {
+  flex: 1;
+  min-width: 80px;
+  transition: flex 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.galleryItem:hover {
+  flex: 5;
+}
+```
+
+CSS hover만으로 기본 동작 가능하나, React state(`activeIndex`)와 인라인 스타일을 병행하면 키보드/터치 이벤트 대응이 쉬워진다.
+
+```tsx
+// CSS :hover와 React state 병행
+style={activeIndex === index ? { flex: 5 } : { flex: 1 }}
+onMouseEnter={() => setActiveIndex(index)}
+```
+
+> **주의:** CSS `flex` 트랜지션은 `flex-grow`에만 동작한다. `flex: 1`과 `flex: 5`는 실질적으로 `flex-grow: 1/5`로 해석된다.
+
+### Glassmorphism 오버레이 구조
+
+```css
+.overlayContent {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  width: calc(100% - 4rem);
+  max-width: 400px;
+
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 1rem;
+
+  /* 초기: 숨김 */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease 0.2s, transform 0.4s ease 0.2s;
+  pointer-events: none;
+}
+
+.galleryItem:hover .overlayContent {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+```
+
+딜레이(`0.2s`)를 주는 이유: 패널이 어느 정도 확장된 후 오버레이가 나타나야 자연스럽다.
+
+→ 자세한 Glassmorphism 구현은 [`design-texture/Glassmorphism.md`](../design-texture/Glassmorphism.md) 참조.
+
+### 헤더 영역 — 타이틀 + 파트너 로고
+
+```
+┌─────────────────────────────────────────────────┐
+│ h2 (max-width 500px)        [logo][logo][logo]  │
+│ 4rem / font-weight 500      flex-wrap, gap 1.5  │
+│ letter-spacing -0.04em                          │
+└─────────────────────────────────────────────────┘
+```
+
+```css
+.headerArea {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.logoBox {
+  filter: grayscale(100%);
+  opacity: 0.8;
+  transition: opacity 0.3s, filter 0.3s;
+}
+.logoBox:hover { filter: grayscale(0%); opacity: 1; }
+```
+
+로고는 grayscale 기본 → hover 시 컬러. 파트너 인지도를 과하지 않게 표시.
+
+### 코드 골격
+
+```tsx
+const [activeIndex, setActiveIndex] = useState<number>(0);
+
+<div className={styles.galleryWrapper}>
+  {galleryData.map((item, index) => (
+    <div
+      key={item.id}
+      className={styles.galleryItem}
+      onMouseEnter={() => setActiveIndex(index)}
+      style={activeIndex === index ? { flex: 5 } : { flex: 1 }}
+    >
+      <img src={item.imageUrl} alt={item.title} className={styles.imageLayer} />
+      <div className={styles.overlayContent}>
+        <h3 className={styles.overlayTitle}>{item.title}</h3>
+        <p className={styles.overlayDesc}>{item.description}</p>
+      </div>
+    </div>
+  ))}
+</div>
+```
+
+### Pattern 01 / 02 / 03 비교
+
+| 항목 | P01 Score Card | P02 Testimonial Carousel | P03 Accordion Gallery |
+|------|---------------|--------------------------|----------------------|
+| 레이아웃 | 정적 3열 그리드 | 슬라이딩 캐러셀 | Flex 아코디언 |
+| 콘텐츠 | 숫자/게이지 | 인용문 | 이미지 + 텍스트 오버레이 |
+| 인터랙션 | 없음 | 슬라이드 | hover expand |
+| 반응형 | CSS media query | JS resize | CSS flex-direction 전환 |
+| 브레이크포인트 | 860px | 640/1024px | 768/1024px |
+| 분위기 | 데이터 중심 | 신뢰/증언 | 비주얼 임팩트 |
+
+### 사용 맥락
+
+- 이미지 중심 섹션 (제조업, 건축, 포트폴리오, 여행)
+- 여러 서비스/공간/제품을 동등하게 소개하되, 탐색 행동을 유도할 때
+- 파트너사/인증 로고를 함께 노출해 신뢰를 강화할 때
+- 3–5개 패널이 최적 (2개는 아코디언 의미 약함, 6개 이상은 min-width가 너무 좁아짐)
+
+---

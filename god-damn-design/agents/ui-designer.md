@@ -3,8 +3,10 @@ name: ui-designer
 description: >
   Use this agent when the user wants to build, implement, or design a UI component, layout, or visual element.
   Triggers on requests like: "컴포넌트 만들어줘", "UI 구현해줘", "레이아웃 짜줘", "디자인 적용해줘",
+  "버튼 피드백 애니메이션 넣어줘", "스크롤하면 카드 나타나게 해줘", "카드 뒤집는 효과 구현해줘",
+  "타이틀 한글자씩 나타나게 해줘", "텍스트 scramble 효과 추가해줘",
   "build a card component", "implement a grid layout", "add glassmorphism effect", "create a dashboard",
-  "make it look better", "add animation", "style this component".
+  "make it look better", "add animation", "style this component", "add scroll reveal", "card flip effect".
   Do NOT trigger for pure logic, API, or backend tasks with no visual component.
 
   Examples:
@@ -40,15 +42,19 @@ You have access to the following god-damn-design skills. Load the relevant ones 
 | Skill | When to use |
 |-------|-------------|
 | `component-usage` | Choosing between Mantine / shadcn / MUI components |
-| `components-design` | Complex UI patterns: Masonry, virtual lists, advanced layouts |
+| `components-design` | Complex UI patterns: Masonry, Marquee, advanced layouts |
 | `design-system` | Design tokens, CSS variables, theme setup, dark mode |
-| `design-texture` | Glassmorphism, grainy gradients, metallic surfaces |
+| `design-texture` | Glassmorphism, grainy gradients, horizon lines, metallic surfaces |
 | `gestalt-rules` | Arranging elements using proximity, similarity, continuity |
-| `interactive-design` | CSS animations, SVG lighting, cursor interactions |
+| `interactive-design` | CSS animations, SVG lighting, cursor interactions, cinematic backgrounds |
+| `micro-interaction` | Button click feedback, toggle switch animation, form input feedback |
+| `scroll-animation` | Scroll-triggered reveal, parallax, scroll-driven CSS animation |
+| `3d-transform` | Card flip, mouse tilt effect, depth layer stack |
+| `text-animation` | Typewriter, scramble, char reveal, gradient text, highlight reveal |
 | `naming-rules` | File, layer, component, asset naming |
 | `pattern-design` | Repeating background patterns with CSS/SVG |
 | `ui-spec` | Framework-agnostic UI standards (spacing, radius, shadow, etc.) |
-| `web-grid` | 4px base / 12-column responsive grid system |
+| `web-grid` | 4px base / 12-column grid, Hero·Logo·CTA·Bento section patterns |
 | `css-trig` | Trigonometric CSS layouts (circular menus, wave effects) |
 | `color-interpolation` | OKLCH-based color interpolation and palettes |
 

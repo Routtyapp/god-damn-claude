@@ -1,6 +1,6 @@
 ---
 name: naming-rules
-description: 파일명, 레이어명, 심볼명, 에셋명 공통 작명 규칙. 개발/디자인 간 네이밍 충돌을 방지할 때 사용한다.
+description: 파일명, 폴더 구조, 레이어명, 에셋명 공통 작명 규칙. 컴포넌트·훅·유틸·타입 파일 네이밍(PascalCase/kebab-case), feature-based 디렉토리 구조, 에셋 폴더 구조 설계 시 참조한다. 개발/디자인 간 네이밍 충돌 방지 목적.
 ---
 
 # Naming Convention Specification
@@ -195,14 +195,134 @@ modal-login-active
 
 ---
 
-# 6. 폴더 구조 예시
+# 6. 폴더 구조
 
-assets/
-icon/
-bg/
-logo/
-image/
+## 6.1 프로젝트 최상위 구조
 
+```
+project/
+├── src/
+├── public/
+│   └── assets/          # 정적 에셋 (아이콘, 이미지, 폰트)
+│       ├── icon/
+│       ├── image/
+│       ├── logo/
+│       └── font/
+├── .env.local
+├── package.json
+└── tsconfig.json
+```
+
+---
+
+## 6.2 src/ 디렉토리 구조
+
+**Feature-based** (권장 — 도메인 중심)
+
+```
+src/
+├── app/                 # Next.js App Router 페이지
+│   ├── (auth)/
+│   │   ├── login/
+│   │   └── register/
+│   ├── dashboard/
+│   └── layout.tsx
+│
+├── features/            # 도메인별 기능 단위
+│   ├── auth/
+│   │   ├── components/
+│   │   ├── hooks/
+│   │   ├── api/
+│   │   └── types/
+│   ├── dashboard/
+│   └── settings/
+│
+├── ui/                  # 공통 UI (ui-spec Adapter Layer)
+│   ├── primitives/      # AppButton, AppInput 등
+│   ├── patterns/        # Form, Table, EmptyState 등
+│   └── index.ts
+│
+├── lib/                 # 유틸, 헬퍼, 설정
+│   ├── utils/
+│   ├── constants/
+│   └── config/
+│
+├── hooks/               # 전역 공통 훅
+├── types/               # 전역 타입
+└── styles/              # 전역 스타일, 토큰
+    ├── globals.css
+    └── tokens.css
+```
+
+---
+
+## 6.3 컴포넌트 폴더 구조
+
+컴포넌트는 **폴더 단위**로 관리한다.
+
+```
+UserCard/
+├── UserCard.tsx         # 컴포넌트 본체
+├── UserCard.module.css  # CSS Module (필요 시)
+├── UserCard.test.tsx    # 테스트
+└── index.ts             # re-export: export { default } from './UserCard'
+```
+
+**index.ts 규칙:**
+- 외부에서는 `import UserCard from '@/ui/UserCard'` 형태로만 접근
+- 내부 파일 직접 import 금지
+
+---
+
+## 6.4 feature/ 내부 구조
+
+```
+features/dashboard/
+├── components/          # 이 도메인 전용 컴포넌트
+│   ├── MetricCard/
+│   └── ChartPanel/
+├── hooks/               # useMetrics, useDashboard 등
+│   └── use-metrics.ts
+├── api/                 # API 호출 함수
+│   └── dashboard.api.ts
+├── types/               # 이 도메인 타입
+│   └── dashboard.types.ts
+└── index.ts             # 외부 공개 인터페이스
+```
+
+---
+
+## 6.5 파일 타입별 네이밍 규칙
+
+| 파일 종류 | 케이스 | 예시 |
+|---|---|---|
+| 컴포넌트 | PascalCase | `UserCard.tsx` |
+| 훅 | kebab-case | `use-auth.ts` |
+| 유틸/헬퍼 | kebab-case | `format-date.ts` |
+| 타입 파일 | kebab-case + `.types` | `user.types.ts` |
+| API 함수 | kebab-case + `.api` | `user.api.ts` |
+| 상수 | kebab-case + `.constants` | `auth.constants.ts` |
+| 스타일 | PascalCase + `.module.css` | `UserCard.module.css` |
+| 테스트 | 대상파일 + `.test` | `UserCard.test.tsx` |
+
+---
+
+## 6.6 에셋 폴더 구조
+
+```
+public/assets/
+├── icon/                # SVG 아이콘
+│   ├── icon-arrow-right.svg
+│   └── icon-user-normal.svg
+├── image/               # 콘텐츠 이미지
+│   ├── image-hero-main.webp
+│   └── thumbnail-product-01.jpg
+├── logo/                # 로고 에셋
+│   ├── logo-main-color.svg
+│   └── logo-main-white.svg
+└── font/                # 웹폰트
+    └── pretendard-variable.woff2
+```
 
 ---
 

@@ -1,6 +1,6 @@
 ---
 name: web-grid
-description: 반응형 웹 그리드 시스템 규격. 4px/12 Column 표준 기반으로 일관된 레이아웃을 설계할 때 사용한다.
+description: 반응형 웹 그리드 시스템 규격. 4px/12 Column 표준 기반으로 일관된 레이아웃을 설계할 때 사용한다. 히어로 섹션, 로고 섹션 등 실제 코드 기반 레이아웃 패턴도 포함한다.
 ---
 
 # Web Grid System Specification (4px / 12 Column Standard)
@@ -248,3 +248,18 @@ Column Width =
 이 문서는 프로젝트 초기 단계에서 반드시 합의 후 시작해야 한다.
 
 그리드는 선택이 아니라, 구조다.
+
+---
+
+# 실전 레이아웃 패턴
+
+실제 코드 기반으로 수집한 섹션별 레이아웃 패턴.
+
+## 참조 파일
+
+- **히어로 섹션**: [hero-sections.md](hero-sections.md) — Split(50:50), Centered, Full-Bleed 3패턴
+- **로고 섹션**: [logo-sections.md](logo-sections.md) — Infinite Marquee 외
+- **벤토 그리드**: [bento-grid.md](bento-grid.md) — Line Bento(1px 라인, 4컬럼) 외
+- **CTA 섹션**: [cta-sections.md](cta-sections.md) — Score Card(반원 게이지) 외
+- **브레이크포인트**: [breakpoints.md](breakpoints.md) — 프레임워크별 비교, 디바이스 해상도
+- **반응형 레이아웃**: [responsive-layout.md](responsive-layout.md) — Flexbox/Grid 패턴, Container Query, Fluid Typography

@@ -38,13 +38,19 @@ description: 디자인 시스템 구축 가이드. 디자인 토큰, CSS 변수,
 ```css
 :root {
   /* === 색상 === */
-  /* Primitive Colors (원시 색상) */
-  --color-blue-50: #eff6ff;
-  --color-blue-100: #dbeafe;
-  --color-blue-500: #3b82f6;
-  --color-blue-600: #2563eb;
-  --color-blue-700: #1d4ed8;
+  /*
+   * Primitive Colors (원시 색상)
+   * 브랜드 hue는 프로젝트 무드에 맞게 자유롭게 선택한다.
+   * oklch() 색공간을 쓰면 채도·밝기를 유지한 채 hue만 바꿀 수 있어 팔레트 조율이 쉽다.
+   * 예: oklch(0.97 0.02 <hue>), oklch(0.55 0.18 <hue>), oklch(0.42 0.18 <hue>)
+   */
+  --color-brand-50:     /* 극밝은 틴트 — 배경·강조 영역용 */;
+  --color-brand-100:    /* 밝은 틴트 — 호버 배경용 */;
+  --color-brand-500:    /* 기본 브랜드 색상 */;
+  --color-brand-600:    /* 호버·포커스 상태 */;
+  --color-brand-700:    /* 액티브·프레스 상태 */;
 
+  /* 중립 색상 (Neutral) — gray hue도 브랜드에 따라 warm/cool 조정 가능 */
   --color-gray-50: #f9fafb;
   --color-gray-100: #f3f4f6;
   --color-gray-200: #e5e7eb;
@@ -53,22 +59,23 @@ description: 디자인 시스템 구축 가이드. 디자인 토큰, CSS 변수,
   --color-gray-900: #111827;
 
   /* Semantic Colors (의미적 색상) */
-  --color-primary: var(--color-blue-500);
-  --color-primary-hover: var(--color-blue-600);
-  --color-primary-active: var(--color-blue-700);
+  --color-primary:        var(--color-brand-500);
+  --color-primary-hover:  var(--color-brand-600);
+  --color-primary-active: var(--color-brand-700);
 
   --color-background: #ffffff;
-  --color-surface: var(--color-gray-50);
-  --color-border: var(--color-gray-200);
+  --color-surface:    var(--color-gray-50);
+  --color-border:     var(--color-gray-200);
 
-  --color-text-primary: var(--color-gray-900);
+  --color-text-primary:   var(--color-gray-900);
   --color-text-secondary: var(--color-gray-500);
-  --color-text-inverse: #ffffff;
+  --color-text-inverse:   #ffffff;
 
-  --color-success: #10b981;
-  --color-warning: #f59e0b;
-  --color-error: #ef4444;
-  --color-info: #3b82f6;
+  /* 상태 색상 — 브랜드 hue와 조화롭게 선택한다. hue·채도 모두 조정 가능 */
+  --color-success: /* 초록 계열. 예: oklch(0.65 0.15 145) */;
+  --color-warning: /* 주황·황색 계열. 예: oklch(0.75 0.16 70) */;
+  --color-error:   /* 빨강 계열. 예: oklch(0.60 0.21 25) */;
+  --color-info:    /* 브랜드 또는 파랑 계열. 예: var(--color-brand-500) */;
 
   /* === 타이포그래피 === */
   --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -147,11 +154,19 @@ description: 디자인 시스템 구축 가이드. 디자인 토큰, CSS 변수,
 /* 시스템 설정 기반 */
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-background: #0f172a;
-    --color-surface: #1e293b;
-    --color-border: #334155;
+    /*
+     * 다크 배경: 브랜드 hue를 약하게 반영하거나 순수 중립 계열 중 선택한다.
+     * 예시:
+     *   중립 다크:  #111111, #1a1a1a
+     *   웜 다크:    #1a1510, #2a1f0d
+     *   쿨 네이비:  #0f172a, #0d1b2a
+     *   브랜드 틴트: oklch(0.15 0.03 <brand-hue>)
+     */
+    --color-background: /* 프로젝트 무드에 맞게 선택 */;
+    --color-surface:    /* background보다 L 5~8% 밝게 */;
+    --color-border:     /* surface보다 L 5~10% 밝게 */;
 
-    --color-text-primary: #f8fafc;
+    --color-text-primary:   #f8fafc;
     --color-text-secondary: #94a3b8;
 
     --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.3);
@@ -160,8 +175,8 @@ description: 디자인 시스템 구축 가이드. 디자인 토큰, CSS 변수,
 
 /* 클래스 기반 (수동 전환) */
 .dark {
-  --color-background: #0f172a;
-  --color-surface: #1e293b;
+  --color-background: /* 위와 동일한 값 */;
+  --color-surface:    /* 위와 동일한 값 */;
   /* ... */
 }
 ```
@@ -193,15 +208,16 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        // 브랜드 색상은 CSS 변수에서 참조 — hue 변경 시 한 곳만 수정하면 됨
         primary: {
-          50: '#eff6ff',
-          100: '#dbeafe',
-          500: '#3b82f6',
-          600: '#2563eb',
-          700: '#1d4ed8',
+          50:  'var(--color-brand-50)',
+          100: 'var(--color-brand-100)',
+          DEFAULT: 'var(--color-brand-500)',
+          600: 'var(--color-brand-600)',
+          700: 'var(--color-brand-700)',
         },
         surface: 'var(--color-surface)',
-        border: 'var(--color-border)',
+        border:  'var(--color-border)',
       },
       fontFamily: {
         sans: ['var(--font-sans)'],
@@ -288,15 +304,16 @@ module.exports = {
 {
   "color": {
     "primitive": {
-      "blue": {
-        "50": { "value": "#eff6ff" },
-        "500": { "value": "#3b82f6" },
-        "600": { "value": "#2563eb" }
+      "brand": {
+        "50":  { "value": "/* 프로젝트 브랜드 틴트 */" },
+        "500": { "value": "/* 기본 브랜드 색상 */" },
+        "600": { "value": "/* 호버 상태 */" },
+        "700": { "value": "/* 액티브 상태 */" }
       }
     },
     "semantic": {
-      "primary": { "value": "{color.primitive.blue.500}" },
-      "primary-hover": { "value": "{color.primitive.blue.600}" }
+      "primary":       { "value": "{color.primitive.brand.500}" },
+      "primary-hover": { "value": "{color.primitive.brand.600}" }
     }
   },
   "spacing": {
